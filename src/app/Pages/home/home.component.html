@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div class="Main">
+
+
+<div class="card" style="width: 18rem;" *ngFor="let destino of Destinos">
+  <img [src]="destino.Imagem" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ destino.Titulo }}</h5>
+    <p class="card-text"> {{  destino.Subtitulo  }} </p>
+    <a (click)=" Redirect(destino.Rota) " class="btn btn-primary">{{ destino.TextoBtn }}</a>
+  </div>
+</div>
+
+
+</div>
+
+
