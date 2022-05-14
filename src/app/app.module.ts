@@ -8,7 +8,7 @@ import { CadastroPessoalComponent } from './Pages/cadastro-pessoal/cadastro-pess
 import { CadastroPagamentoComponent } from './Pages/cadastro-pagamento/cadastro-pagamento.component';
 import { SucessoComponent } from './Pages/sucesso/sucesso.component';
 import { ErroComponent } from './Pages/erro/erro.component';
-
+import {  ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,13 +16,13 @@ import { ErroComponent } from './Pages/erro/erro.component';
     CadastroPessoalComponent,
     CadastroPagamentoComponent,
     SucessoComponent,
-    ErroComponent
+    ErroComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule, AppRoutingModule, 
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

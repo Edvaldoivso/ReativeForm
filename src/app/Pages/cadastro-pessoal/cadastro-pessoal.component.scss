@@ -1,7 +1,19 @@
 #FormPessoal {
 
-    padding: 5%;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
     width: 100%;
-    
 
+    h2,
+    button {
+        margin-top: 2%;
+    }
+
+
+}
+
+form {
+    padding: 5%;
 }
