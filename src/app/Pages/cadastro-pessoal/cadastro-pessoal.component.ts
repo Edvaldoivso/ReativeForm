@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Output } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { findIndex, tap, toArray } from 'rxjs';
 
 @Component({
   selector: 'app-cadastro-pessoal',
@@ -7,7 +9,7 @@ import { FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./cadastro-pessoal.component.scss'],
 })
 export class CadastroPessoalComponent implements OnInit {
-  constructor(private formBilder: FormBuilder) {}
+  constructor(private formBilder: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {}
 
@@ -19,11 +21,12 @@ export class CadastroPessoalComponent implements OnInit {
     Genero: [''],
     Sexo: [''],
     CPF: [''],
-    Passaporte : [' '],
+    Passaport: [' '],
     Vacinacao: [''],
     RG: [''],
     Eleitor: [''],
     Motorista: [''],
+    Pais: [''],
     cep: [''],
     Rua: [''],
     Referencia: [''],
@@ -31,26 +34,26 @@ export class CadastroPessoalComponent implements OnInit {
     Cidade: [''],
   });
 
+  public ArrayList: Array<{ nome: string; idade: number; sexo: string }> = [
+    {
+      nome: 'Edvaldo',
+      idade: 29,
+      sexo: 'XX',
+    },
+  ];
 
+  @Output() ValBarraStatus: number = 0;
+  //Array de dados a cada % mudar o valor preenchido da barra.
 
-public ProcessaPessoal(){
-  console.log(this.FormPessoal.value)
-  
-}
+  public ProcessaPessoal() {
+    let newDataList: Array<string> = this.FormPessoal.value;
+    let DataList: Array<string> = [];
+    Object.entries(newDataList).forEach(([key, value]) => {
+      console.log(`${key} : ${value}`);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      if (value.trim()) DataList.push(`${key} : ${value}`);
+    });
+    this.ValBarraStatus = DataList.length;
+    console.log(this.ValBarraStatus);
+  }
 }

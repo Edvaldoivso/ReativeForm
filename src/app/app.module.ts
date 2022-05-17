@@ -9,6 +9,10 @@ import { CadastroPagamentoComponent } from './Pages/cadastro-pagamento/cadastro-
 import { SucessoComponent } from './Pages/sucesso/sucesso.component';
 import { ErroComponent } from './Pages/erro/erro.component';
 import {  ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { StatusbarComponent } from './status/statusbar/statusbar.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,10 +21,13 @@ import {  ReactiveFormsModule } from '@angular/forms';
     CadastroPagamentoComponent,
     SucessoComponent,
     ErroComponent,
+    StatusbarComponent,
+
   ],
   imports: [
     BrowserModule, AppRoutingModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

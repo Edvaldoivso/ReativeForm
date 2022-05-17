@@ -1,55 +1,78 @@
-<div id="FormPessoal">
+<div id="FormPessoal" >
+
+
+
   <form [formGroup]="FormPessoal" (ngSubmit)="ProcessaPessoal()">
+
+  <statusbar></statusbar>
     <h2>Dado Pessoais</h2>
     <hr />
     <div class="form-group">
       <div class="row">
         <div class="col-3">
-          <label for="nome">Nome</label>
+          <label for="nome" [class.fully]="nome.value">Nome</label>
           <input
             type="text"
             formControlName="nome"
             id="nome"
+            #nome
             class="form-control"
             required
           />
+          
         </div>
 
         <div class="col-3">
-          <label for="sobrenome">Sobrenome</label>
+          <label for="sobrenome" [class.fully]="sobrenome.value"
+            >Sobrenome</label
+          >
           <input
             type="text"
             formControlName="sobrenome"
             id="sobrenome"
             class="form-control"
+            #sobrenome
             required
           />
         </div>
       </div>
       <div class="row">
         <div class="col-3">
-          <label for="social">Nome Social</label>
+          <label for="social" [class.fully]="social.value">Nome Social</label>
           <input
             type="text"
             formControlName="social"
             id="social"
             class="form-control"
+            #social
           />
         </div>
-        <div class="col-1">
-          <label for="Nascimento">Nascimento</label>
+        <div class="col-2">
+          <label for="Nascimento" [class.fully]="nascimento.value"
+            >Nascimento</label
+          >
           <input
             type="text"
             formControlName="Nascimento"
             id="Nascimento"
             class="form-control"
+            #nascimento
             required
           />
         </div>
         <div class="col-3">
-          <label for="Genero">Genero</label>
-          <select class="form-control" formControlName="Genero" required>
-            <option selected>Selecione...</option>
+          <label
+            for="Genero"
+            [class.fully]="genero.value && genero.value != 'Selecione...'"
+            >Genero</label
+          >
+          <select
+            class="form-control"
+            formControlName="Genero"
+            #genero
+            required
+          >
+            <option>Selecione...</option>
             <option>Transgender</option>
             <option>Biheteronormatizada</option>
             <option>Neutre</option>
@@ -70,8 +93,11 @@
             formControlName="Sexo"
             name="Sexo"
             value="F"
+            #sexoF
           />
-          <label class="form-check-label" for="F">Femino</label>
+          <label class="form-check-label" for="F" [class.fully]="sexoF.value && sexoF.checked" >Femino</label
+          >
+         
         </div>
         <div class="form-check form-check-inline">
           <input
@@ -82,48 +108,52 @@
             formControlName="Sexo"
             name="Sexo"
             value="M"
+            #sexoM
           />
-          <label class="form-check-label" for="M">Masculino</label>
+          <label class="form-check-label" for="M" [class.fully]="sexoM.value && sexoM.checked"
+            >Masculino</label
+          >
         </div>
 
-
-
-
-        
         <br />
         <br />
         <h2>Dados de Identificação</h2>
         <hr />
         <div class="row">
           <div class="col-3">
-            <label for="CPF">CPF/CNPJ</label>
+            <label for="CPF" [class.fully]="cpf.value">CPF/CNPJ</label>
             <input
               type="text"
               formControlName="CPF"
               id="CPF"
               class="form-control"
+              #cpf
               required
             />
           </div>
 
           <div class="col-3">
-            <label for="Passaporte">Passaporte</label>
+             <label for="Passaport" [class.fully]="Passaport.value">Passaporte</label>
             <input
               type="text"
-              formControlName="Passaporte"
-              id="Passaporte"
+              formControlName="CPF"
+              id="Passaport"
               class="form-control"
+              #Passaport
               required
             />
           </div>
 
           <div class="col-3">
-            <label for="Vacinacao"> Carteira Vacinação</label>
+            <label for="Vacinacao" [class.fully]="vacina.value">
+              Carteira Vacinação</label
+            >
             <input
               type="text"
               formControlName="Vacinacao"
               id="Vacinacao"
               class="form-control"
+              #vacina
             />
           </div>
         </div>
@@ -131,32 +161,39 @@
 
       <div class="row">
         <div class="col-3">
-          <label for="RG">RG</label>
+          <label for="RG" [class.fully]="rg.value">RG</label>
           <input
             type="text"
             formControlName="RG"
             id="RG"
             class="form-control"
+            #rg
           />
         </div>
 
         <div class="col-3">
-          <label for="Eleitor">Titulo de Eleitor</label>
+          <label for="Eleitor" [class.fully]="eleitor.value"
+            >Titulo de Eleitor</label
+          >
           <input
             type="text"
             formControlName="Eleitor"
             id="Eleitor"
             class="form-control"
+            #eleitor
           />
         </div>
 
         <div class="col-3">
-          <label for="Motorista">Carteira de Motorista</label>
+          <label for="Motorista" [class.fully]="motorista.value"
+            >Carteira de Motorista</label
+          >
           <input
             type="text"
             formControlName="Motorista"
             id="Motorista"
             class="form-control"
+            #motorista
           />
         </div>
       </div>
@@ -166,8 +203,15 @@
       <hr />
       <div class="row">
         <div class="col-2">
-          <label for="Genero">Pais de Residencia</label>
-          <select class="form-control" formControlName="Genero" required>
+          <label for="Pais" [class.fully]="residencia.value  && residencia.value != 'Selecione...'"
+            >Pais de Residencia</label
+          >
+          <select
+            class="form-control"
+            formControlName="Pais"
+            #residencia
+            required
+          >
             <option selected>Selecione...</option>
             <option>Brasil</option>
             <option>Burundi</option>
@@ -178,40 +222,45 @@
         </div>
 
         <div class="col-2">
-          <label for="cep">Cep</label>
+          <label for="cep" [class.fully]="cep.value">Cep</label>
           <input
             type="text"
             formControlName="cep"
             id="Cep"
             class="form-control"
+            #cep
             required
           />
         </div>
 
         <div class="col-4">
-          <label for="Rua">Rua</label>
+          <label for="Rua" [class.fully]="rua.value">Rua</label>
           <input
             type="text"
             formControlName="Rua"
             id="Rua"
             class="form-control"
+            #rua
           />
         </div>
 
         <div class="col-3">
-          <label for="Referencia">Referencia</label>
+          <label for="Referencia" [class.fully]="referencia.value"
+            >Referencia</label
+          >
           <input
             type="text"
             formControlName="Referencia"
             id="Referencia"
             class="form-control"
+            #referencia
           />
         </div>
       </div>
       <div class="row">
         <div class="col-2">
-          <label for="Estado">Estado</label>
-          <select class="form-control" formControlName="Estado">
+          <label for="Estado" [class.fully]="estado.value  && estado.value != 'Selecione...'">Estado</label>
+          <select class="form-control" formControlName="Estado" #estado>
             <option>Selecione...</option>
             <option>São Paulo</option>
             <option>Bahia</option>
@@ -221,8 +270,8 @@
           </select>
         </div>
         <div class="col-3">
-          <label for="Cidade">Cidade</label>
-          <select class="form-control" formControlName="Cidade">
+          <label for="Cidade" [class.fully]="cidade.value  && cidade.value != 'Selecione...'">Cidade</label>
+          <select class="form-control" formControlName="Cidade" #cidade>
             <option>Selecione...</option>
             <option>São Paulo</option>
             <option>Carapicuiba</option>
@@ -235,12 +284,16 @@
     </div>
     <br />
 
-    <p *ngIf="FormPessoal.invalid">Você deve prencher todos os campos para poder enviar</p>
-    <button type="btn" class="btn btn-outline-light" [disabled]="FormPessoal.invalid">ENVIAR REGISTRO</button>
+    <p *ngIf="FormPessoal.invalid" [class.alerta]="FormPessoal.invalid">
+      * Você deve prencher todos os campos antes para enviar
+    </p>
+    <button
+      type="btn"
+      class="btn btn-outline-light"
     
-  
-  
+    >
+    <!--[disabled]="FormPessoal.invalid"-->
+      ENVIAR REGISTRO
+    </button>
   </form>
-
-  
 </div>

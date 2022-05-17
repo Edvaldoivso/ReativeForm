@@ -6,13 +6,25 @@
     padding: 0;
     border: 0;
     font-size: 100%;
-    
+    color: var(--texto);
     font: inherit;
     vertical-align: baseline;
-    background-color: $--background;
-   
+    background-color: var(--background);
+
 }
 
 
 
 
+.alerta{
+    color: var(--textalert);
+    font-weight: 700;
+    font-size: 100%;
+}
+
+.fully{
+    color: var(--complete);
+    font-weight: 700;
+    font-size: 100%;
+    text-transform: uppercase;
+}

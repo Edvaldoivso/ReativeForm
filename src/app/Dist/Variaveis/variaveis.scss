@@ -1,9 +1,12 @@
 //consumo via "propriedade: VAR(variavel)"
 
 :root {
-    $--background : #000000 !default;
-    $--texto: #ffffff;
-    $--hover: #ffffff;
-    $--backgrounInput: rgba(255, 255, 255, 0.1)
+    --background : #000000;
+    --texto: #ffffff;
+    --hover: #ffffff;
+    --backgrounInput: rgba(255, 255, 255, 0.1);
+    --textalert : #ed0909 ;
+    --complete : #08d2ed;
+    
 }
 
