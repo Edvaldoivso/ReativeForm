@@ -1,10 +1,9 @@
-<div id="FormPessoal" >
-
-
-
+<div id="FormPessoal">
   <form [formGroup]="FormPessoal" (ngSubmit)="ProcessaPessoal()">
+    <br />
+    <statusbar [statusbarvalue]="ValBarra"></statusbar>
 
-  <statusbar></statusbar>
+    <br />
     <h2>Dado Pessoais</h2>
     <hr />
     <div class="form-group">
@@ -19,7 +18,6 @@
             class="form-control"
             required
           />
-          
         </div>
 
         <div class="col-3">
@@ -95,9 +93,12 @@
             value="F"
             #sexoF
           />
-          <label class="form-check-label" for="F" [class.fully]="sexoF.value && sexoF.checked" >Femino</label
+          <label
+            class="form-check-label"
+            for="F"
+            [class.fully]="sexoF.value && sexoF.checked"
+            >Femino</label
           >
-         
         </div>
         <div class="form-check form-check-inline">
           <input
@@ -110,7 +111,10 @@
             value="M"
             #sexoM
           />
-          <label class="form-check-label" for="M" [class.fully]="sexoM.value && sexoM.checked"
+          <label
+            class="form-check-label"
+            for="M"
+            [class.fully]="sexoM.value && sexoM.checked"
             >Masculino</label
           >
         </div>
@@ -133,7 +137,9 @@
           </div>
 
           <div class="col-3">
-             <label for="Passaport" [class.fully]="Passaport.value">Passaporte</label>
+            <label for="Passaport" [class.fully]="Passaport.value"
+              >Passaporte</label
+            >
             <input
               type="text"
               formControlName="CPF"
@@ -203,7 +209,11 @@
       <hr />
       <div class="row">
         <div class="col-2">
-          <label for="Pais" [class.fully]="residencia.value  && residencia.value != 'Selecione...'"
+          <label
+            for="Pais"
+            [class.fully]="
+              residencia.value && residencia.value != 'Selecione...'
+            "
             >Pais de Residencia</label
           >
           <select
@@ -259,7 +269,11 @@
       </div>
       <div class="row">
         <div class="col-2">
-          <label for="Estado" [class.fully]="estado.value  && estado.value != 'Selecione...'">Estado</label>
+          <label
+            for="Estado"
+            [class.fully]="estado.value && estado.value != 'Selecione...'"
+            >Estado</label
+          >
           <select class="form-control" formControlName="Estado" #estado>
             <option>Selecione...</option>
             <option>São Paulo</option>
@@ -270,7 +284,11 @@
           </select>
         </div>
         <div class="col-3">
-          <label for="Cidade" [class.fully]="cidade.value  && cidade.value != 'Selecione...'">Cidade</label>
+          <label
+            for="Cidade"
+            [class.fully]="cidade.value && cidade.value != 'Selecione...'"
+            >Cidade</label
+          >
           <select class="form-control" formControlName="Cidade" #cidade>
             <option>Selecione...</option>
             <option>São Paulo</option>
@@ -287,12 +305,8 @@
     <p *ngIf="FormPessoal.invalid" [class.alerta]="FormPessoal.invalid">
       * Você deve prencher todos os campos antes para enviar
     </p>
-    <button
-      type="btn"
-      class="btn btn-outline-light"
-    
-    >
-    <!--[disabled]="FormPessoal.invalid"-->
+    <button type="btn" class="btn btn-outline-light">
+      <!--[disabled]="FormPessoal.invalid"-->
       ENVIAR REGISTRO
     </button>
   </form>

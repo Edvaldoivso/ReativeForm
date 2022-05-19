@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { findIndex, tap, toArray } from 'rxjs';
+import { findIndex, Observable, tap, toArray } from 'rxjs';
 
 @Component({
   selector: 'app-cadastro-pessoal',
@@ -11,7 +11,9 @@ import { findIndex, tap, toArray } from 'rxjs';
 export class CadastroPessoalComponent implements OnInit {
   constructor(private formBilder: FormBuilder, private http: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.ProcessaPessoal();
+  }
 
   public FormPessoal: FormGroup = this.formBilder.group({
     nome: [''],
@@ -21,7 +23,7 @@ export class CadastroPessoalComponent implements OnInit {
     Genero: [''],
     Sexo: [''],
     CPF: [''],
-    Passaport: [' '],
+    Passaport: [''],
     Vacinacao: [''],
     RG: [''],
     Eleitor: [''],
@@ -34,26 +36,32 @@ export class CadastroPessoalComponent implements OnInit {
     Cidade: [''],
   });
 
-  public ArrayList: Array<{ nome: string; idade: number; sexo: string }> = [
-    {
-      nome: 'Edvaldo',
-      idade: 29,
-      sexo: 'XX',
-    },
-  ];
+  //Exportando o valor para ser usado no TS da barra de Status
+  //5.56 X Nºcampos    ----> 4 = 23%!7
 
-  @Output() ValBarraStatus: number = 0;
-  //Array de dados a cada % mudar o valor preenchido da barra.
+  @Output() ValBarra: number = 0;
 
+  //Array de dados a cada % vai exportar seu valor para a barra mudar seu status no component externo.
   public ProcessaPessoal() {
     let newDataList: Array<string> = this.FormPessoal.value;
     let DataList: Array<string> = [];
     Object.entries(newDataList).forEach(([key, value]) => {
-      console.log(`${key} : ${value}`);
+      // console.log(`${key} : ${value}`);
 
       if (value.trim()) DataList.push(`${key} : ${value}`);
     });
-    this.ValBarraStatus = DataList.length;
-    console.log(this.ValBarraStatus);
+
+    this.ValBarra = 5.56 * DataList.length ;
+    console.log(DataList.length);
   }
+ 
+
+
+
+
+
+
+
+
+
 }
