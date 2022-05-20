@@ -1,5 +1,5 @@
 <div id="FormPessoal">
-  <form [formGroup]="FormPessoal" (ngSubmit)="ProcessaPessoal()">
+  <form [formGroup]="FormPessoal" (ngSubmit)="ProcessaPessoal()" (click)="ProcessaPessoal()" (keyup)="ProcessaPessoal()">
     <br />
     <statusbar [statusbarvalue]="ValBarra"></statusbar>
 
@@ -61,7 +61,7 @@
         <div class="col-3">
           <label
             for="Genero"
-            [class.fully]="genero.value && genero.value != 'Selecione...'"
+            [class.fully]="genero.value && genero.value !== 'Selecione...'"
             >Genero</label
           >
           <select
@@ -142,7 +142,7 @@
             >
             <input
               type="text"
-              formControlName="CPF"
+              formControlName="Passaport"
               id="Passaport"
               class="form-control"
               #Passaport
@@ -212,7 +212,7 @@
           <label
             for="Pais"
             [class.fully]="
-              residencia.value && residencia.value != 'Selecione...'
+              residencia.value && residencia.value !== 'Selecione...'
             "
             >Pais de Residencia</label
           >
@@ -271,7 +271,7 @@
         <div class="col-2">
           <label
             for="Estado"
-            [class.fully]="estado.value && estado.value != 'Selecione...'"
+            [class.fully]="estado.value && estado.value !== 'Selecione...'"
             >Estado</label
           >
           <select class="form-control" formControlName="Estado" #estado>
@@ -286,7 +286,7 @@
         <div class="col-3">
           <label
             for="Cidade"
-            [class.fully]="cidade.value && cidade.value != 'Selecione...'"
+            [class.fully]="cidade.value && cidade.value !== 'Selecione...'"
             >Cidade</label
           >
           <select class="form-control" formControlName="Cidade" #cidade>
@@ -305,8 +305,8 @@
     <p *ngIf="FormPessoal.invalid" [class.alerta]="FormPessoal.invalid">
       * Você deve prencher todos os campos antes para enviar
     </p>
-    <button type="btn" class="btn btn-outline-light">
-      <!--[disabled]="FormPessoal.invalid"-->
+    <button type="btn" class="btn btn-outline-light" [disabled]="FormPessoal.invalid">
+      
       ENVIAR REGISTRO
     </button>
   </form>

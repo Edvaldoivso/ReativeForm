@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'statusbar',
@@ -10,25 +10,18 @@ export class StatusbarComponent implements OnInit {
   constructor() {}
 
   //Recebe valor do meio externo do componente para ser usado internamente simples assim!.
-  @Input() statusbarvalue : number = 0
-     
+  @Input() statusbarvalue: number = 0;
 
   ngOnInit(): void {
-   this.statusbar()
+    this.statusbar();
   }
 
-  statusbar(){
-     let statusbar: any = document.querySelector('.fully');
+  ngOnChanges(): void {
+    this.statusbar();
+  }
+
+  statusbar() {
+    let statusbar: any = document.querySelector('.fully');
     statusbar.style.width = this.statusbarvalue + '%';
-    console.log(this.statusbarvalue)
   }
-
-
-
-
-
-
-
-
-
 }

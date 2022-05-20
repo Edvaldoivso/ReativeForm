@@ -47,21 +47,9 @@ export class CadastroPessoalComponent implements OnInit {
     let DataList: Array<string> = [];
     Object.entries(newDataList).forEach(([key, value]) => {
       // console.log(`${key} : ${value}`);
-
       if (value.trim()) DataList.push(`${key} : ${value}`);
     });
-
-    this.ValBarra = 5.56 * DataList.length ;
-    console.log(DataList.length);
+    this.ValBarra = 5.56 * DataList.length;
+    //console.log(DataList.length);
   }
- 
-
-
-
-
-
-
-
-
-
 }
