@@ -8,7 +8,9 @@ import { SucessoComponent } from './Pages/sucesso/sucesso.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
+
   { path: 'Home', component: HOMEComponent },
+
   {
     path: 'CadPagamento',
     loadChildren: () =>
@@ -16,22 +18,24 @@ const routes: Routes = [
         (c) => c.CadastroPagamentoComponent
       ),
   },
+
   {
     path: 'CadPessoa',
     component: CadastroPessoalComponent,
   },
+
   {
     path: 'Sucesso',
     loadChildren: () =>
       import('./Pages/sucesso/sucesso.component').then(
-        (s) => s.SucessoComponent
+        (c) => c.SucessoComponent
       ),
   },
-  { path: '404', redirectTo: '*', pathMatch: 'full' },
+
+  { path: '404', redirectTo: '*' },
+
   {
-    path: '*',
-    loadChildren: () =>
-      import('./Pages/erro/erro.component').then((e) => e.ErroComponent),
+    path: '*', component: ErroComponent,
   },
 ];
 

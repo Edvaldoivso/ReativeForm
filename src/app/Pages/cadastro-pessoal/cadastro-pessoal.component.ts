@@ -52,4 +52,10 @@ export class CadastroPessoalComponent implements OnInit {
     this.ValBarra = 5.56 * DataList.length;
     //console.log(DataList.length);
   }
+
+  cancelar() {
+    let confirma = window.confirm('Aplicar rota protegida neste modulo !!!');
+
+    if (confirma == true) window.location.href = '';
+  }
 }

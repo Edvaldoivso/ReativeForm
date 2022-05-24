@@ -6,9 +6,13 @@
     padding: 2%;
     width: 100%;
 
-    h2,
+    h2 {
+        margin-top: 2%;
+    }
+
     button {
         margin-top: 2%;
+        margin-left: 2%;
     }
 
 
@@ -18,6 +22,6 @@ form {
     padding: 5%;
 }
 
-.feminino{
+.feminino {
     background-color: #e4bacb;
 }

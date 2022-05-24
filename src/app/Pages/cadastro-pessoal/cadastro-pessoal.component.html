@@ -1,5 +1,10 @@
 <div id="FormPessoal">
-  <form [formGroup]="FormPessoal" (ngSubmit)="ProcessaPessoal()" (click)="ProcessaPessoal()" (keyup)="ProcessaPessoal()">
+  <form
+    [formGroup]="FormPessoal"
+    (ngSubmit)="ProcessaPessoal()"
+    (click)="ProcessaPessoal()"
+    (keyup)="ProcessaPessoal()"
+  >
     <br />
     <statusbar [statusbarvalue]="ValBarra"></statusbar>
 
@@ -305,9 +310,16 @@
     <p *ngIf="FormPessoal.invalid" [class.alerta]="FormPessoal.invalid">
       * Você deve prencher todos os campos antes para enviar
     </p>
-    <button type="btn" class="btn btn-outline-light" [disabled]="FormPessoal.invalid">
-      
+    <button
+      type="btn"
+      class="btn btn-outline-light"
+      [disabled]="FormPessoal.invalid"
+    >
       ENVIAR REGISTRO
+    </button>
+
+    <button type="btn" class="btn btn-outline-danger" (click)="cancelar()">
+      CANCELAR
     </button>
   </form>
 </div>

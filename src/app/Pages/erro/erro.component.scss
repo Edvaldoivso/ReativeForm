@@ -1,0 +1,39 @@
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+
+
+}
+
+
+img {
+    height: 30%;
+    width: 30%;
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--texto);
+    transition: var( --animation)
+}
+
+
+a:link {
+    color: var(--textalert);
+}
+
+
+a:hover {
+    color: var(--complete);
+
+
+}
+
+
+a:active {
+    color: blue;
+}
