@@ -2,7 +2,7 @@
   <form
     [formGroup]="FormPessoal"
     (ngSubmit)="ProcessaPessoal()"
-    (click)="ProcessaPessoal()"
+    (click)="ProcessaPessoal(); saveData()"
     (keyup)="ProcessaPessoal()"
   >
     <br />
@@ -310,11 +310,8 @@
     <p *ngIf="FormPessoal.invalid" [class.alerta]="FormPessoal.invalid">
       * Você deve prencher todos os campos antes para enviar
     </p>
-    <button
-      type="btn"
-      class="btn btn-outline-light"
-      [disabled]="FormPessoal.invalid"
-    >
+    <button type="btn" class="btn btn-outline-light">
+      <!--[disabled]="FormPessoal.invalid"-->
       ENVIAR REGISTRO
     </button>
 

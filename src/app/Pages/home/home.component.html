@@ -1,16 +1,25 @@
 <div class="Main">
+  <ng-template [ngIf]="autenticar == false && showCard == true ">
+  
+    <div class="card" style="width: 18rem" *ngFor="let destino of Destinos">
+      <img [src]="destino.Imagem" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ destino.Titulo }}</h5>
+        <p class="card-text">{{ destino.Subtitulo }}</p>
+        <a (click)="Redirect(destino.Rota)" class="btn btn-primary">{{
+          destino.TextoBtn
+        }}</a>
+      </div>
+    </div>
+  </ng-template>
 
+  <ng-template [ngIf]="autenticar">
+    <div id="autentication" *ngIf="autenticar">
+      <a><h3>Login</h3></a>
+    </div>
+  </ng-template>
 
-<div class="card" style="width: 18rem;" *ngFor="let destino of Destinos">
-  <img [src]="destino.Imagem" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{ destino.Titulo }}</h5>
-    <p class="card-text"> {{  destino.Subtitulo  }} </p>
-    <a (click)=" Redirect(destino.Rota) " class="btn btn-primary">{{ destino.TextoBtn }}</a>
-  </div>
+  <ng-template [ngIf]="autenticar"
+    ><div>Content to render when condition is true.</div></ng-template
+  >
 </div>
-
-
-</div>
-
-

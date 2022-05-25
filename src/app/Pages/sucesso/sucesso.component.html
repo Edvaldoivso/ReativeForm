@@ -1,1 +1,28 @@
-<p>sucesso works!</p>
+<div id="bodyview">
+  <div id="Overview">
+    <h1>STARSHIP TICKET</h1>
+    <br />
+    <br />
+
+    Teste de Dados Nós da spaceX desejamos a {{ nome }} com identificador numero
+    {{ cpf }}
+    uma ótima viagem a bordo da nossa StarShip Lorem ipsum dolor sit amet
+    consectetur, adipisicing elit. Quam, quo soluta, autem, amet tempore
+    molestias enim nihil exercitationem optio nobis blanditiis aliquid molestiae
+    provident nostrum unde quidem ab nam mollitia?
+    <br />
+    <hr />
+    Passageiro: "EDVALDO SOUZA" Partindo de:{{ De }} ás: 14:00 UTC Chegando em:
+    {{ To }} ás: 15:00 UTC
+
+    <br />
+    <hr />
+
+    Autenticador : {{ Auth }}
+  </div>
+  <div class="imprimir">
+    <a (click)="Finaliza()">Imprimir{{ "    " }}|</a>
+    <a (click)="Finaliza()">Continuar a comprar {{ "    " }}|</a>
+    <a (click)="Finaliza()">Finalizar</a>
+  </div>
+</div>

@@ -1,1 +1,108 @@
-<p>cadastro-pagamento works!</p>
+<div id="BodyPay">
+  <h1>Cadastrar Pagamento</h1>
+  <hr />
+
+  <div class="MainData">
+    <div class="DataBox">
+      <h2>Dados do Cartão</h2>
+      <div id="Form">
+        <form [formGroup]="FormPayment">
+          <div class="form-group">
+            <div class="col-3">
+              <label for="NumCartao">Numero</label>
+              <input
+                type="text"
+                formControlName="NumCartao"
+                id="NumCartao"
+                #NumCartao
+                class="form-control"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="col-3">
+            <label for="">Nome</label>
+
+            <input
+              type="text"
+              formControlName="NomTitular"
+              id="NomTitular"
+              class="form-control"
+              #NomTitular
+              required
+            />
+          </div>
+
+          <div class="col-3">
+            <label for="">CVC</label>
+            <input
+              type="text"
+              formControlName="NumCVC"
+              id="NumCVC"
+              #NumCVC
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="col-3">
+            <label for="NumValidade">Validade</label>
+            <input
+              type="text"
+              formControlName="NumValidade"
+              id="NumValidade"
+              #NumValidade
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="col-3">
+            <label for="CpfTitular">CPF</label>
+            <input
+              type="text"
+              formControlName="CpfTitular"
+              id="CpfTitular"
+              #CpfTitular
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="col-3">
+            <label for="CardModalC">CREDITO</label>
+            <input
+              type="text"
+              formControlName="CardModal"
+              id="CardModal"
+              value="C"
+              class="form-control"
+              #CardModalC
+              required
+            />
+          </div>
+
+          <div class="col-3">
+            <label for="CardModalD">DEBITO</label>
+            <input
+              type="text"
+              formControlName="CardModal"
+              id="CardModal"
+              value="D"
+              #CardModalD
+              class="form-control"
+              required
+            />
+          </div>
+
+          <br />
+          <button type="btn" class="btn btn-outline-danger">Continuar</button>
+        </form>
+      </div>
+    </div>
+    <div id="card">
+      <h2>Aqui o Cartão</h2>
+    </div>
+  </div>
+</div>

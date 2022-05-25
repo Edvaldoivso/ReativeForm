@@ -1,0 +1,27 @@
+#bodyview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+}
+
+
+#Overview {
+
+
+    color: #000000;
+    background-color: rgba(155, 151, 155, 0.99);
+    height: 600px;
+    width: 70%;
+    border-radius: 5px;
+    padding: 5%;
+
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+}

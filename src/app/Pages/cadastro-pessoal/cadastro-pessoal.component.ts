@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { findIndex, Observable, tap, toArray } from 'rxjs';
 
 @Component({
@@ -9,7 +10,7 @@ import { findIndex, Observable, tap, toArray } from 'rxjs';
   styleUrls: ['./cadastro-pessoal.component.scss'],
 })
 export class CadastroPessoalComponent implements OnInit {
-  constructor(private formBilder: FormBuilder, private http: HttpClient) {}
+  constructor(private formBilder: FormBuilder, private http: HttpClient ,  public route : Router) {}
 
   ngOnInit(): void {
     this.ProcessaPessoal();
@@ -53,9 +54,28 @@ export class CadastroPessoalComponent implements OnInit {
     //console.log(DataList.length);
   }
 
-  cancelar() {
+  public cancelar() {
     let confirma = window.confirm('Aplicar rota protegida neste modulo !!!');
 
-    if (confirma == true) window.location.href = '';
+    if (confirma == true) this.route.navigate(['']);
   }
+
+  //Salva o registro no banco de dados
+
+  public saveData() {
+
+    this.route.navigate(['Sucesso'])
+    console.log('SaveData Feito');
+
+
+    
+  }
+
+
+
+
+
+
+
+
 }

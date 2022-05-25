@@ -7,6 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HOMEComponent implements OnInit {
+
+  autenticar: boolean = false;
+  showCard: boolean = true;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
@@ -22,27 +26,34 @@ export class HOMEComponent implements OnInit {
       Imagem: './assets/ImagemFundo/Tokio.jpg',
       Titulo: 'TOKIO',
       Subtitulo: 'A SN28 te leva em 30 minutos e só',
-      TextoBtn: 'VAMOS PARA TOKIO',
+      TextoBtn: 'TOKIO',
       Rota: 'CadPessoa',
     },
     {
       Imagem: './assets/ImagemFundo/SaoPaulo.jpg',
       Titulo: 'SÃO PAULO',
       Subtitulo: 'A Cidade dos negocios com a SpaceX',
-      TextoBtn: 'JÁ PARA O BRASIL !',
+      TextoBtn: 'BRASIL !',
       Rota: 'CadPessoa',
     },
     {
       Imagem: './assets/ImagemFundo/CapeTown.jpg',
       Titulo: 'CapeTown',
       Subtitulo: 'A DOURADA com a nave do Futuro',
-      TextoBtn: 'Voar Para África',
+      TextoBtn: 'ÁFRICA',
       Rota: 'CadPessoa',
     },
   ];
 
   //Redirecionamento
   public Redirect(i: string) {
-    this.router.navigate([i]);
+    //Faz a consulta de usuario se tem que ter ou não
+
+    if (this.autenticar == false) {
+      this.router.navigate([i]);
+    } else {
+      console.log('Rota de Pagamento em construção' + this.showCard);
+      //this.router.navigate([]);
+    }
   }
 }

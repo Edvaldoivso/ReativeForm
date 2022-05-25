@@ -1,0 +1,25 @@
+.MainData {
+
+    display: flex;
+     background-color: aqua;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.DataBox {
+    background-color: bisque;
+    width: 55%;
+   
+}
+
+#card{
+     background-color: rgb(255, 140, 0);
+    height: 200px;
+    width: 300px;
+}
+
+#Form{
+    background-color: brown;
+}

@@ -13,10 +13,7 @@ const routes: Routes = [
 
   {
     path: 'CadPagamento',
-    loadChildren: () =>
-      import('./Pages/cadastro-pagamento/cadastro-pagamento.component').then(
-        (c) => c.CadastroPagamentoComponent
-      ),
+    component : CadastroPagamentoComponent,
   },
 
   {
@@ -26,10 +23,8 @@ const routes: Routes = [
 
   {
     path: 'Sucesso',
-    loadChildren: () =>
-      import('./Pages/sucesso/sucesso.component').then(
-        (c) => c.SucessoComponent
-      ),
+    component : SucessoComponent,
+      
   },
 
   { path: '404', redirectTo: '*' },
