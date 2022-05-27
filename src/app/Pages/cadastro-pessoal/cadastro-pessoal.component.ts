@@ -63,12 +63,9 @@ export class CadastroPessoalComponent implements OnInit {
   //Salva o registro no banco de dados
 
   public saveData() {
-
-    this.route.navigate(['Sucesso'])
-    console.log('SaveData Feito');
-
-
-    
+    window.alert('SALVANDO DADOS')
+    this.route.navigate(['CadPagamento'])
+    console.log('SaveData Feito');  
   }
 
 

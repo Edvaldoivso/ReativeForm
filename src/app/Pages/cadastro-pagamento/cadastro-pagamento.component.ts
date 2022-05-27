@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-pagamento',
@@ -7,7 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./cadastro-pagamento.component.scss'],
 })
 export class CadastroPagamentoComponent implements OnInit {
-  constructor(public FormEstruture: FormBuilder) {}
+  constructor(public FormEstruture: FormBuilder ,  public route : Router) {}
 
   ngOnInit(): void {}
 
@@ -19,4 +20,45 @@ export class CadastroPagamentoComponent implements OnInit {
     CpfTitular: [''],
     CardModal: [''],
   });
+
+
+
+
+
+
+public SucessoPagamento(){
+
+  window.alert('PROCESSANDO O PAGAMENTO')
+    this.route.navigate(['Sucesso'])
 }
+
+public cancelar(){
+  window.alert('Deseja Cancelar')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+

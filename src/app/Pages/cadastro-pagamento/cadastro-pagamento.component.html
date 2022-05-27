@@ -100,7 +100,20 @@
       </div>
 
       <br />
-      <button type="btn" class="btn btn-outline-danger">Continuar</button>
+
+      <section class="inline">
+        <button
+          type="button"
+          class="btn btn-outline-light"
+          (click)="SucessoPagamento()"
+        >
+          Continuar
+        </button>
+        {{ " " }}
+        <button type="btn" class="btn btn-outline-danger" (click)="cancelar()">
+          CANCELAR
+        </button>
+      </section>
     </form>
 
     <div id="Card">
@@ -113,18 +126,18 @@
         <p *ngIf="NomTitular.value">{{ NomTitular.value | uppercase }}</p>
         <p *ngIf="!NomTitular.value">{{ "JOÃO DA SILVA" }}</p>
       </section>
-      
+
       <section>
         <h4 *ngIf="NumCartao.value">{{ NumCartao.value }}</h4>
         <h4 *ngIf="!NumCartao.value">{{ " 000.000.000.000 " }}</h4>
       </section>
 
       <section class="inline">
-        <p *ngIf="NumCVC.value" >CVC {{ NumCVC.value }}</p>
+        <p *ngIf="NumCVC.value">CVC {{ NumCVC.value }}</p>
         <p *ngIf="NumValidade.value">Validade {{ NumValidade.value }}</p>
 
-        <p *ngIf="!NumCVC.value">CVC {{ '000' }}</p>
-        <p *ngIf="!NumValidade.value">Validade {{ '00/00' }}</p>
+        <p *ngIf="!NumCVC.value">CVC {{ "000" }}</p>
+        <p *ngIf="!NumValidade.value">Validade {{ "00/00" }}</p>
       </section>
 
       <br />
