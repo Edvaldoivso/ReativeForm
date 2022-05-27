@@ -1,25 +1,66 @@
 .MainData {
 
     display: flex;
-     background-color: aqua;
+    padding: 1%;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    
+
+
+
+
 }
 
-.DataBox {
-    background-color: bisque;
-    width: 55%;
-   
+.FormCard {
+    border: 1px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2%;
+    width: 40%;
+
+
+    .row {
+        justify-content: flex-start;
+        padding: 1%;
+        width: 90%;
+
+    }
+
 }
 
-#card{
-     background-color: rgb(255, 140, 0);
-    height: 200px;
-    width: 300px;
+
+#Card {
+    width: 370px;
+    height: 220px;
+    margin: 1%;
+    padding: 0.5%;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    box-shadow: 1px 5px 10px #ffffff;
+    z-index: 2%;
+    background-image: linear-gradient(black, silver, gray);
+
+    p,
+    section,
+    h3,
+    h4,
+    #LogoCard {
+        background-color: transparent;
+    }
 }
 
-#Form{
-    background-color: brown;
+
+
+#LogoCard {
+    float: right;
+}
+
+.inline {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+
+
 }
