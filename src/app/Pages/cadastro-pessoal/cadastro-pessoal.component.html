@@ -21,7 +21,7 @@
             id="nome"
             #nome
             class="form-control"
-            required
+            
           />
         </div>
 
@@ -35,7 +35,7 @@
             id="sobrenome"
             class="form-control"
             #sobrenome
-            required
+            
           />
         </div>
       </div>
@@ -60,7 +60,7 @@
             id="Nascimento"
             class="form-control"
             #nascimento
-            required
+            
           />
         </div>
         <div class="col-3">
@@ -73,7 +73,7 @@
             class="form-control"
             formControlName="Genero"
             #genero
-            required
+           
           >
             <option>Selecione...</option>
             <option>Transgender</option>
@@ -137,7 +137,7 @@
               id="CPF"
               class="form-control"
               #cpf
-              required
+              
             />
           </div>
 
@@ -151,7 +151,7 @@
               id="Passaport"
               class="form-control"
               #Passaport
-              required
+              
             />
           </div>
 
@@ -225,7 +225,7 @@
             class="form-control"
             formControlName="Pais"
             #residencia
-            required
+            
           >
             <option selected>Selecione...</option>
             <option>Brasil</option>
@@ -244,7 +244,7 @@
             id="Cep"
             class="form-control"
             #cep
-            required
+            
           />
         </div>
 
@@ -310,7 +310,7 @@
     <p *ngIf="FormPessoal.invalid" [class.alerta]="FormPessoal.invalid">
       * Você deve prencher todos os campos antes para enviar
     </p>
-    <button type="button" class="btn btn-outline-light" (click)="saveData()" [disabled]="FormPessoal.invalid">
+    <button type="button" class="btn btn-outline-light" (click)="PostAllDadas()" [disabled]="FormPessoal.invalid">
     
       ENVIAR REGISTRO
     </button>

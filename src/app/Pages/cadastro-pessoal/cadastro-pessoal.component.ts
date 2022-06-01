@@ -2,7 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { findIndex, Observable, tap, toArray } from 'rxjs';
+
+import {
+  catchError,
+  finalize,
+  findIndex,
+  first,
+  map,
+  Observable,
+  pipe,
+  tap,
+  toArray,
+} from 'rxjs';
 
 @Component({
   selector: 'app-cadastro-pessoal',
@@ -10,11 +21,20 @@ import { findIndex, Observable, tap, toArray } from 'rxjs';
   styleUrls: ['./cadastro-pessoal.component.scss'],
 })
 export class CadastroPessoalComponent implements OnInit {
-  constructor(private formBilder: FormBuilder, private http: HttpClient ,  public route : Router) {}
+  constructor(
+    private formBilder: FormBuilder,
+    private http: HttpClient,
+    public route: Router
+  ) {}
 
   ngOnInit(): void {
     this.ProcessaPessoal();
   }
+
+  @Output() ValBarra: number = 0;
+  UrlPersonal: string = 'http://localhost:3000/Cadastro';
+  public DadosPessoais: Array<[any]> = [];
+  public DadosPessoais2: Array<[any]> = [];
 
   public FormPessoal: FormGroup = this.formBilder.group({
     nome: [''],
@@ -40,8 +60,6 @@ export class CadastroPessoalComponent implements OnInit {
   //Exportando o valor para ser usado no TS da barra de Status
   //5.56 X Nºcampos    ----> 4 = 23%!7
 
-  @Output() ValBarra: number = 0;
-
   //Array de dados a cada % vai exportar seu valor para a barra mudar seu status no component externo.
   public ProcessaPessoal() {
     let newDataList: Array<string> = this.FormPessoal.value;
@@ -62,17 +80,19 @@ export class CadastroPessoalComponent implements OnInit {
 
   //Salva o registro no banco de dados
 
+  //Elaborado sem retorno
+
   public saveData() {
-    window.alert('SALVANDO DADOS')
-    this.route.navigate(['CadPagamento'])
-    console.log('SaveData Feito');  
+    // this.route.navigate(['CadPagamento']);
+    console.log(`Valor dos Dados:   ${this.DadosPessoais}`);
   }
 
+  public GetAllDados(): Observable<any> {
+    return this.http.get<any>(this.UrlPersonal).pipe();
+    //tap(console.log));
+  }
 
-
-
-
-
-
-
+  public PostAllDadas() {
+    this.http.put(this.UrlPersonal, this.FormPessoal);
+  }
 }
