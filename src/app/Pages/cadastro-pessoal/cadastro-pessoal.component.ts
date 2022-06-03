@@ -73,7 +73,7 @@ export class CadastroPessoalComponent implements OnInit {
   }
 
   public cancelar() {
-    let confirma = window.confirm('Aplicar rota protegida neste modulo !!!');
+    let confirma = window.confirm('Deseja mesmo Cancelar !!!');
 
     if (confirma == true) this.route.navigate(['']);
   }
@@ -83,7 +83,7 @@ export class CadastroPessoalComponent implements OnInit {
   //Elaborado sem retorno
 
   public saveData() {
-    // this.route.navigate(['CadPagamento']);
+    this.route.navigate(['CadPagamento']);
     console.log(`Valor dos Dados:   ${this.DadosPessoais}`);
   }
 

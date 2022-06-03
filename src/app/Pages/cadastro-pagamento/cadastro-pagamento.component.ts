@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cadastro-pagamento.component.scss'],
 })
 export class CadastroPagamentoComponent implements OnInit {
-  constructor(public FormEstruture: FormBuilder ,  public route : Router) {}
+  constructor(public FormEstruture: FormBuilder, public route: Router) {}
 
   ngOnInit(): void {}
 
@@ -21,44 +21,14 @@ export class CadastroPagamentoComponent implements OnInit {
     CardModal: [''],
   });
 
+  public SucessoPagamento() {
+    window.alert('PROCESSANDO O PAGAMENTO');
+    this.route.navigate(['Sucesso']);
+  }
 
+  public cancelar() {
+    let confirma = window.confirm('Deseja mesmo Cancelar !!!');
 
-
-
-
-public SucessoPagamento(){
-
-  window.alert('PROCESSANDO O PAGAMENTO')
-    this.route.navigate(['Sucesso'])
+    if (confirma == true) this.route.navigate(['']);
+  }
 }
-
-public cancelar(){
-  window.alert('Deseja Cancelar')
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-
-
-
-
-

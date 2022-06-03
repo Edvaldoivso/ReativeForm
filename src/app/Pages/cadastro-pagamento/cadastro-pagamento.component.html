@@ -106,10 +106,12 @@
           type="button"
           class="btn btn-outline-light"
           (click)="SucessoPagamento()"
-        >
+          [disabled]="FormPayment.invalid"
+          >
           Continuar
         </button>
-        {{ " " }}
+
+        
         <button type="btn" class="btn btn-outline-danger" (click)="cancelar()">
           CANCELAR
         </button>
